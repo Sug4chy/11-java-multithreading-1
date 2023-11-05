@@ -9,11 +9,11 @@ public class Main {
     static class LuckyThread extends Thread {
         @Override
         public void run() {
-            while (x.intValue() < 999999) {
-                int intValue = x.incrementAndGet();
-                if ((intValue % 10) + (intValue / 10) % 10 + (intValue / 100) % 10 == (intValue / 1000)
-                        % 10 + (intValue / 10000) % 10 + (intValue / 100000) % 10) {
-                    System.out.println(intValue);
+            while (x.get() < 999999) {
+                int i  = x.incrementAndGet();
+                if ((i % 10) + (i / 10) % 10 + (i / 100) % 10 == (i / 1000)
+                        % 10 + (i / 10000) % 10 + (i / 100000) % 10) {
+                    System.out.println(x);
                     count.incrementAndGet();
                 }
             }
